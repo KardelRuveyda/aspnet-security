@@ -6,16 +6,21 @@ using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Rendering;
 using Microsoft.EntityFrameworkCore;
 using DataProtection.Web.Models;
+using Microsoft.AspNetCore.DataProtection;
 
 namespace DataProtection.Web.Controllers
 {
     public class ProductsController : Controller
     {
         private readonly NetCoreSecurityContext _context;
+        private readonly IDataProtector _dataProtector;
+        private readonly IDataProtector _dataProtector2;
 
-        public ProductsController(NetCoreSecurityContext context)
+        public ProductsController(NetCoreSecurityContext context, IDataProtectionProvider dataProtectionProvider)
         {
             _context = context;
+            _dataProtector = dataProtectionProvider.CreateProtector("ProductsController");
+            _dataProtector2 = dataProtectionProvider.CreateProtector("ProductsController2");
         }
 
         // GET: Products
