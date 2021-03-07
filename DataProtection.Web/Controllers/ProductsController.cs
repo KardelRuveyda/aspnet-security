@@ -14,31 +14,38 @@ namespace DataProtection.Web.Controllers
     {
         private readonly NetCoreSecurityContext _context;
         private readonly IDataProtector _dataProtector;
-        private readonly IDataProtector _dataProtector2;
 
         public ProductsController(NetCoreSecurityContext context, IDataProtectionProvider dataProtectionProvider)
         {
             _context = context;
             _dataProtector = dataProtectionProvider.CreateProtector("ProductsController");
-            _dataProtector2 = dataProtectionProvider.CreateProtector("ProductsController2");
         }
 
         // GET: Products
         public async Task<IActionResult> Index()
         {
-            return View(await _context.Product.ToListAsync());
+            var products = await _context.Product.ToListAsync();
+
+            products.ForEach(x =>
+           {
+               x.EncrypedId = _dataProtector.Protect(x.Id.ToString());
+           });
+
+
+            return View(products );
         }
 
         // GET: Products/Details/5
-        public async Task<IActionResult> Details(int? id)
+        public async Task<IActionResult> Details(string id)
         {
             if (id == null)
             {
                 return NotFound();
             }
+            int decryptedId = int.Parse(_dataProtector.Unprotect(id));
 
             var product = await _context.Product
-                .FirstOrDefaultAsync(m => m.Id == id);
+                .FirstOrDefaultAsync(m => m.Id== decryptedId);
             if (product == null)
             {
                 return NotFound();
