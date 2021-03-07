@@ -9,6 +9,6 @@ namespace DataProtection.Web.Models
     public partial class Product
     {
         [NotMapped]
-        public string EncrypedId { get; set; }
+        public string EncryptedId { get; set; }
     }
 }
