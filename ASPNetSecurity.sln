@@ -5,6 +5,8 @@ VisualStudioVersion = 16.0.30309.148
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataProtection.Web", "DataProtection.Web\DataProtection.Web.csproj", "{744A066D-00CB-4FCE-9A73-C6584F05CAFD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WhiteBlackList.Web", "WhiteBlackList.Web\WhiteBlackList.Web.csproj", "{3F08A3E9-9B2C-48CD-B438-61B8017370F2}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{744A066D-00CB-4FCE-9A73-C6584F05CAFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{744A066D-00CB-4FCE-9A73-C6584F05CAFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{744A066D-00CB-4FCE-9A73-C6584F05CAFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3F08A3E9-9B2C-48CD-B438-61B8017370F2}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3F08A3E9-9B2C-48CD-B438-61B8017370F2}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3F08A3E9-9B2C-48CD-B438-61B8017370F2}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3F08A3E9-9B2C-48CD-B438-61B8017370F2}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
