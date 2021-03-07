@@ -5,7 +5,7 @@ namespace DataProtection.Web.Models
 {
     public partial class Product
     {
-        public int İd { get; set; }
+        public int Id { get; set; }
         public string Name { get; set; }
         public double? Price { get; set; }
         public string Color { get; set; }

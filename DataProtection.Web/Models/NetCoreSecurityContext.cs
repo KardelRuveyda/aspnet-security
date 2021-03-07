@@ -22,9 +22,9 @@ namespace DataProtection.Web.Models
         {
             modelBuilder.Entity<Product>(entity =>
             {
-                entity.HasKey(e => e.İd);
+                entity.HasKey(e => e.Id);
 
-                entity.Property(e => e.İd).HasColumnName("İD");
+                entity.Property(e => e.Id).HasColumnName("Id");
 
                 entity.Property(e => e.Color).HasMaxLength(50);
 
