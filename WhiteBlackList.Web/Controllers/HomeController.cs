@@ -5,6 +5,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
+using WhiteBlackList.Web.Filters;
 using WhiteBlackList.Web.Models;
 
 namespace WhiteBlackList.Web.Controllers
@@ -18,6 +19,7 @@ namespace WhiteBlackList.Web.Controllers
             _logger = logger;
         }
 
+        [ServiceFilter(typeof(CheckWhiteList))]
         public IActionResult Index()
         {
             return View();

@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.HttpsPolicy;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using WhiteBlackList.Web.Filters;
 using WhiteBlackList.Web.MiddleWares;
 
 namespace WhiteBlackList.Web
@@ -25,6 +26,9 @@ namespace WhiteBlackList.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.Configure<IPList>(Configuration.GetSection("IPList"));
+
+            services.AddScoped<CheckWhiteList>();
+
             services.AddControllersWithViews();
         }
 
