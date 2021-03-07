@@ -32,7 +32,5 @@ namespace WhiteBlackList.Web.Filters
 
             base.OnActionExecuting(context);    
         }
-
-
     }
 }
