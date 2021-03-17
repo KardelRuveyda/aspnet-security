@@ -10,6 +10,7 @@ using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
+using Microsoft.Net.Http.Headers;
 
 namespace Web.API
 {
@@ -27,10 +28,26 @@ namespace Web.API
         {
             services.AddCors(opts =>
             {
-                opts.AddDefaultPolicy(builder =>
+                //opts.AddPolicy("AllowSite", builder =>
+                //{
+                //    builder.WithOrigins("https://localhost:44327").AllowAnyHeader().AllowAnyMethod();
+                //});
+
+                //opts.AddPolicy("AllowSite2", builder =>
+                // {
+                //     builder.WithOrigins("https://localhost:44327").WithHeaders(HeaderNames.ContentType, "x-custom-header");
+                // });
+
+                opts.AddPolicy("AllowSite", builder =>
+                 {
+                     builder.WithOrigins("https://*.example.com").SetIsOriginAllowedToAllowWildcardSubdomains().AllowAnyHeader();
+                 });
+
+                opts.AddPolicy("AllowSite2", builder =>
                 {
-                    builder.AllowAnyOrigin().AllowAnyHeader().AllowAnyMethod();
+                    builder.WithOrigins("https://localhost:44327").WithMethods("POST", "GET").AllowAnyHeader();
                 });
+
             });
             services.AddControllers();
         }
@@ -41,7 +58,7 @@ namespace Web.API
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
-            }
+            }   
 
             app.UseHttpsRedirection();
 

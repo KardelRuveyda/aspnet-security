@@ -34,3 +34,4 @@ C:\Users\KardelRuveyda\source\repos\ASPNetSecurity\Web.Application\obj\Debug\net
 C:\Users\KardelRuveyda\source\repos\ASPNetSecurity\Web.Application\obj\Debug\netcoreapp3.1\Web.Application.pdb
 C:\Users\KardelRuveyda\source\repos\ASPNetSecurity\Web.Application\obj\Debug\netcoreapp3.1\Web.Application.genruntimeconfig.cache
 C:\Users\KardelRuveyda\source\repos\ASPNetSecurity\Web.Application\obj\Debug\netcoreapp3.1\Web.Application.csproj.CopyComplete
+C:\Users\KardelRuveyda\source\repos\ASPNetSecurity\Web.Application\obj\Debug\netcoreapp3.1\Web.Application.csprojAssemblyReference.cache

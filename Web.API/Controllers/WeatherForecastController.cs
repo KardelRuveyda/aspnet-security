@@ -2,11 +2,13 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.AspNetCore.Cors;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 
 namespace Web.API.Controllers
 {
+    [EnableCors("AllowSite2")]
     [ApiController]
     [Route("[controller]")]
     public class WeatherForecastController : ControllerBase
@@ -23,6 +25,7 @@ namespace Web.API.Controllers
             _logger = logger;
         }
 
+        [DisableCors]
         [HttpGet]
         public IEnumerable<WeatherForecast> Get()
         {
