@@ -1,0 +1,32 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>CommentAdd</title>
+</head>
+<body>
+    <form  method="post">
+        <input type="text" name="name"/>
+        <br/>
+        <textarea name="comment"></textarea>
+        <br />
+        <input type="submit" value="Yorum Gönder" />
+        <br />
+    </form>
+
+    <h1>
+        Yorumlar
+    </h1>
+    <strong>
+        @ViewBag.name
+    </strong>
+    <hr />
+    <span>@Html.Raw(@ViewBag.comment)</span>
+</body>
+</html>
