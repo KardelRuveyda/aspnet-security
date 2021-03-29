@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
+using System.Text.Encodings.Web;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
@@ -13,9 +14,17 @@ namespace XSS.Web.Controllers
     {
         private readonly ILogger<HomeController> _logger;
 
-        public HomeController(ILogger<HomeController> logger)
+        private HtmlEncoder _htmlEnoder;
+        private JavaScriptEncoder _javascriptEncoder;
+        private UrlEncoder _urlEncoder;
+
+        public HomeController(ILogger<HomeController> logger, HtmlEncoder htmlEncoder , 
+            JavaScriptEncoder javaScriptEncoder, UrlEncoder urlEncoder)
         {
             _logger = logger;
+            _htmlEnoder = htmlEncoder;
+            _javascriptEncoder = javaScriptEncoder;
+            _urlEncoder = urlEncoder;
         }
 
         public IActionResult CommentAdd()
@@ -32,6 +41,8 @@ namespace XSS.Web.Controllers
         [HttpPost]
         public IActionResult CommentAdd(string name,string comment)
         {
+            string encodeName = _urlEncoder.Encode(name);
+
             ViewBag.name = name;
             ViewBag.comment= comment;
 
