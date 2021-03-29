@@ -23,10 +23,13 @@
     <h1>
         Yorumlar
     </h1>
-    <strong>
-        @ViewBag.name
-    </strong>
-    <hr />
-    <span>@Html.Raw(@ViewBag.comment)</span>
+  @if (ViewBag.comments != null)
+  {
+      foreach (var item in ViewBag.comments as string[])
+      {
+          <span>@Html.Raw(item)</span>
+          <hr/>
+      }
+  }
 </body>
 </html>

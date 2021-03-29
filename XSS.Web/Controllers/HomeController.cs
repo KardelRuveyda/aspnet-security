@@ -22,14 +22,20 @@ namespace XSS.Web.Controllers
         {
             HttpContext.Response.Cookies.Append("email", "kardeltest@gmail.com");
             HttpContext.Response.Cookies.Append("password", "1234");
+
+            if (System.IO.File.Exists("comment.txt"))
+            {
+                ViewBag.comments = System.IO.File.ReadAllLines("comment.txt");
+            }
             return View();
         }
         [HttpPost]
         public IActionResult CommentAdd(string name,string comment)
         {
             ViewBag.name = name;
-            ViewBag.comment = comment;
+            ViewBag.comment= comment;
 
+            System.IO.File.AppendAllText("comment.txt", $"{name} - {comment}\n");
             return View();
         }
         public IActionResult Index()

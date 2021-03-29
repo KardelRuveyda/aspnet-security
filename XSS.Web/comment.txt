@@ -1,0 +1,10 @@
+test - kardel
+kardel - 
+ruveyda - cetin
+
+kardel - <script> alert("Merhaba") </script>
+kardel - <script> alert("Merhaba") </script>
+kardel - <script> alert("Merhaba") </script>
+kardel - <script> document.cookie </script>
+kardel - <script> alert("document.cookie") </script>
+kardel - <script> alert(document.cookie)</script>
